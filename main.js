@@ -4,6 +4,7 @@ const BrowserWindow = electron.BrowserWindow;
 //const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
+const Menu = electron.Menu;
 
 
 let win;
@@ -18,15 +19,14 @@ function createWindow () {
     slashes: true
   }));
 
- //Setting the main menu IDK WHY MENU ISN'T DEFINED. IT EXISTS IN ELECTRON
+ //Setting the main menu 
   //Build main menu
-  // new Menu();
-  
-  // const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   
   // Insert the menu
 
-  // Menu.setApplicationMenu(mainMenu);
+  Menu.setApplicationMenu(mainMenu);
 
 
  
