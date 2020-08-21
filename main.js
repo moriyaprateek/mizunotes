@@ -18,6 +18,13 @@ function createWindow () {
     slashes: true
   }));
 
+ //Setting the main menu IDK WHY MENU ISN'T DEFINED. IT EXISTS IN ELECTRON
+  // const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  // Menu.setApplicationMenu(mainMenu);
+
+
+ 
+  
 
   win.on('closed', () => {
     win = null
@@ -25,6 +32,7 @@ function createWindow () {
 }
 
 app.on('ready', createWindow);
+
 
 
 app.on('window-all-closed', () => {
@@ -38,3 +46,12 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+
+//Menu template
+
+const mainMenuTemplate = [
+  {
+    label:'File'
+  }
+];
