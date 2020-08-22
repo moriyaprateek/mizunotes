@@ -51,6 +51,7 @@ function createWindow() {
 // Creating another window to add notes
 function addWindow() {
 
+ 
   addWin = new BrowserWindow({ width: 400, 
     height: 300,
   title:"Add notes",
