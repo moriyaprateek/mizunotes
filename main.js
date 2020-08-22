@@ -8,6 +8,7 @@ const Menu = electron.Menu;
 const ipcMain = electron.ipcMain;
 
 
+
 let win;
 let addWin;
 
@@ -43,21 +44,21 @@ function createWindow() {
     app.quit();
   })
 
-
-
-
-
 }
+
+
+
+
+
 // Creating another window to add notes
 function addWindow() {
+
+  const {BrowserWindow} = require('electron').remote
 
   addWin = new BrowserWindow({ width: 400, 
     height: 300,
   title:"Add notes",
-  webPreferences: {
-    nodeIntegration: true
-    // had to add this because of the following error: Uncaught ReferenceError: require is not defined
-} });
+ });
 
   addWin.loadURL(url.format({
     pathname: path.join(__dirname, 'addItemWindow.html'),
@@ -65,21 +66,20 @@ function addWindow() {
     slashes: true
   }));
 
-
   //Garbage Collection
 
   addWin.on('close', function(){
     addWin = null;
   })
 
-
-
-
-
   win.on('closed', () => {
     win = null
   });
 }
+
+
+
+
 //sending content from addItemWindow.html to main.js and then to index.html
 ipcMain.on('item:add', function(e, item){
   win.webContents.send('item:add', item);
