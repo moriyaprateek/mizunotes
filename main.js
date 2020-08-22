@@ -117,7 +117,10 @@ const mainMenuTemplate = [
       }
     },
     {
-      label: 'Clear All Notes' 
+      label: 'Clear All Notes',
+      click(){
+        win.webContents.send('item:clear');
+      }
     },
     {
       label: 'Quit',

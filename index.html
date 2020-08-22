@@ -34,6 +34,12 @@
       li.innerText = item;
       ul.appendChild(li);
     });
+
+//Clear all notes
+    ipcRenderer.on('item:clear', function(){
+      ul.innerHTML = '';
+
+    })
   </script> 
   
 </body>
