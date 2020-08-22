@@ -1,2 +1,2 @@
 # Note-taking-application
-woo!
+Note taking application: A desktop appliction for saving all your notes.
