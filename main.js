@@ -36,6 +36,17 @@ function createWindow() {
   win.on('closed', () => {
     win = null
   });
+
+
+//If the main/parent window is closed, all the other child windows are closed
+  win.on('closed', function(){
+    app.quit();
+  })
+
+
+
+
+
 }
 // Creating another window to add notes
 function addWindow() {
@@ -54,6 +65,17 @@ function addWindow() {
     slashes: true
   }));
 
+
+  //Garbage Collection
+
+  addWin.on('close', function(){
+    addWin = null;
+  })
+
+
+
+
+
   win.on('closed', () => {
     win = null
   });
@@ -62,12 +84,13 @@ function addWindow() {
 ipcMain.on('item:add', function(e, item){
   win.webContents.send('item:add', item);
   addWin.close(); 
-  // Still have a reference to addWindow in memory. (Grabage collection)
+  // Still have a reference to addWindow in memory. (Grabage collection) -- > Added garbage collection L71
   //addWindow = null;
 });
 
 app.on('ready', createWindow);
 //need to refactor the code below
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
@@ -104,6 +127,8 @@ const mainMenuTemplate = [
     }]
   }
 ];
+
+
 //dev tools addition
 if(process.env.NODE_ENV !== 'production'){
   mainMenuTemplate.push({
