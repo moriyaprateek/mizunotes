@@ -12,20 +12,28 @@
 
 <!-- Adding a class and div -->
 <body class="index">
+  hi
   <div class="container">
-    <ul id="titles"></ul>
+    <!-- <ul id="titles"></ul> -->
     <!-- Titles = titles on the left side -->
-
-    <div id="content" contenteditable="true">
-        <p>Title <br />  &#x2190</p>
-    </div>
-  <!-- Content class = the main content on the right side -->
+        <ul id ="notes"></ul>
   </div>
+  <!-- Content class = the main content on the right side -->
 
 
 
 
-  <script src="scripts/index.js"></script> 
-  <!-- Scripts folder? -->
+
+  <script>
+     const electron = require('electron');
+    const {ipcRenderer} = electron;
+    const ul = document.querySelector('#notes');
+    ipcRenderer.on('item:add', function(e, item){
+      const li = document.createElement('li');
+      li.innerText = item;
+      ul.appendChild(li);
+    });
+  </script> 
+  
 </body>
 </html>

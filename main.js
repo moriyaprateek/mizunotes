@@ -5,13 +5,21 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path')
 const url = require('url')
 const Menu = electron.Menu;
+const ipcMain = electron.ipcMain;
 
 
 let win;
+let addWin;
 
-function createWindow () {
+function createWindow() {
 
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600,
+  
+    webPreferences: {
+      nodeIntegration: true
+  }
+  
+  })
 
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
@@ -19,28 +27,44 @@ function createWindow () {
     slashes: true
   }));
 
- //Setting the main menu 
-  //Build main menu
-
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
-  
-  // Insert the menu
 
   Menu.setApplicationMenu(mainMenu);
+  win.on('closed', () => {
+    win = null
+  });
+}
+// Creating a window to add notes
+function addWindow() {
 
+  addWin = new BrowserWindow({ width: 400, 
+    height: 300,
+  title:"Add notes",
+  webPreferences: {
+    nodeIntegration: true
+    // had to add this because of the following error: Uncaught ReferenceError: require is not defined
+} });
 
- 
-  
+  addWin.loadURL(url.format({
+    pathname: path.join(__dirname, 'addItemWindow.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
 
   win.on('closed', () => {
     win = null
   });
 }
 
+ipcMain.on('item:add', function(e, item){
+  win.webContents.send('item:add', item);
+  addWin.close(); 
+  // Still have a reference to addWindow in memory. (Grabage collection)
+  //addWindow = null;
+});
+
 app.on('ready', createWindow);
-
-
-
+//need to refactor the code below
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
@@ -61,7 +85,10 @@ const mainMenuTemplate = [
     label:'File',
     submenu:[
     {
-      label: 'Add Note'
+      label: 'Add Note',
+      click() {
+        addWindow();
+      }
     },
     {
       label: 'Clear All Notes' 
@@ -74,3 +101,21 @@ const mainMenuTemplate = [
     }]
   }
 ];
+//dev tools addition
+if(process.env.NODE_ENV !== 'production'){
+  mainMenuTemplate.push({
+    label: 'Developer Tools',
+    submenu:[
+      {
+        role: 'reload'
+      },
+      {
+        label: 'Toggle DevTools',
+        accelerator:process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
+        click(item, focusedWindow){
+          focusedWindow.toggleDevTools();
+        }
+      }
+    ]
+  });
+}

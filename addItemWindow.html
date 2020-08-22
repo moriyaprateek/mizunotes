@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add notes</title>
+
+</head>
+<body>
+    <form>
+      <label>Enter your notes:</label>
+      <input type="text" id="text" autofocus>
+      <button type="submit">Enter</button>
+    </form>
+    <script>
+      const electron = require('electron');
+      const { ipcRenderer } = electron;
+      document.querySelector('form').addEventListener('submit', (eve) => {
+          eve.preventDefault();
+          const item = document.querySelector('#text').value;
+          ipcRenderer.send('item:add', item);
+        });
+    </script>
+</body>
+</html>
