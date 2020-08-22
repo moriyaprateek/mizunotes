@@ -17,6 +17,9 @@ function createWindow() {
   
     webPreferences: {
       nodeIntegration: true
+      // had to add this because of the following error: Uncaught ReferenceError: require is not defined
+      //https://stackoverflow.com/questions/57505082/would-it-be-safe-to-enable-nodeintegration-in-electron-on-a-local-page-that-is-p
+      // check this ^ 
   }
   
   })
@@ -34,7 +37,7 @@ function createWindow() {
     win = null
   });
 }
-// Creating a window to add notes
+// Creating another window to add notes
 function addWindow() {
 
   addWin = new BrowserWindow({ width: 400, 
@@ -55,7 +58,7 @@ function addWindow() {
     win = null
   });
 }
-
+//sending content from addItemWindow.html to main.js and then to index.html
 ipcMain.on('item:add', function(e, item){
   win.webContents.send('item:add', item);
   addWin.close(); 

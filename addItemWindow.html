@@ -13,6 +13,7 @@
       <button type="submit">Enter</button>
     </form>
     <script>
+      //sending data to main.js on submit
       const electron = require('electron');
       const { ipcRenderer } = electron;
       document.querySelector('form').addEventListener('submit', (eve) => {
