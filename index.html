@@ -26,36 +26,6 @@
 <!-- New layout -->
 
 <body class = "index">
-
-  <!-- <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        
-        <div class="index">
-         Index
-        </div>
-
-        <div class="w-100">
-          Test2
-        </div>
-      </div>
-      <div class="col">
-        Notes
-      </div>
-    </div>
-
-
-    <ul class="nav nav-list">
-      <li class="divider"></li>
-
-    </ul>
-
-    <div class="row">
-      Test2
-    </div>
-  </div> -->
-
-
   <header>
     <div class="left_area">
       <h3>Application Header</h3>
@@ -86,7 +56,9 @@
 
 
     <div class="content">
-        <ul id="notes" class="card"></ul> 
+        <ul id="notes" style = "list-style-type:none">
+
+        </ul> 
         <!-- Need to complete main content part -->
 <!-- 
         <div id="notes">
@@ -94,9 +66,6 @@
         </div> -->
     </div>
 </body>
-
-
-
 
 
 
@@ -108,6 +77,7 @@
     const content = document.getElementsByClassName("notes");
     ipcRenderer.on('item:add', function(e, item){
       const li = document.createElement('li');
+      li.setAttribute("class", "card");
       li.innerText = item;
       ul.appendChild(li);
 
@@ -126,7 +96,6 @@
 //Clear all notes
     ipcRenderer.on('item:clear', function(){
       ul.innerHTML = '';
-
     })
 
 

@@ -71,3 +71,8 @@ header{
     margin-left: 250px;
     padding-top: 100px;
 }
+
+#notes{
+    line-height: 50px;
+    padding-top: 10px;
+}

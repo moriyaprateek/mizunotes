@@ -113,6 +113,7 @@ const mainMenuTemplate = [
     submenu:[
     {
       label: 'Add Note',
+      accelerator: 'Ctrl+N',
       click() {
         addWindow();
       }
