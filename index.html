@@ -86,12 +86,12 @@
 
 
     <div class="content">
-        <!-- <ul id="notes" class="card"></ul>  -->
+        <ul id="notes" class="card"></ul> 
         <!-- Need to complete main content part -->
-
+<!-- 
         <div id="notes">
             Add notes here
-        </div>
+        </div> -->
     </div>
 </body>
 
@@ -105,23 +105,21 @@
     const electron = require('electron');
     const {ipcRenderer} = electron;
     const ul = document.querySelector('#notes');
-   const content = document.getElementsByClassName("content");
-    //var currentDiv = document.getElementById("notes");
+    const content = document.getElementsByClassName("notes");
     ipcRenderer.on('item:add', function(e, item){
-      // const li = document.createElement('li');
-      // li.innerText = item;
-      // ul.appendChild(li);
+      const li = document.createElement('li');
+      li.innerText = item;
+      ul.appendChild(li);
 
       
-      var newdiv = document.createElement("div");
+      // var newdiv = document.createElement("div");
       // newnote.innerHTML = item;
-      var newnote = document.createTextNode(text);
-      newnote.innerHTML = item;
-      newdiv.appendChild(newnote);
-      content.appendChild(newdiv);
-      const currentDiv = document.getElementById("notes");
-      document.insertBefore(newdiv, currentDiv);
-      //console.log(newnote.innerHTML);
+      // var newnote = document.createTextNode(text);
+      // newnote.innerHTML = item;
+      // newdiv.appendChild(newnote);
+      // const currentDiv = document.getElementById("notes");
+      // document.body.insertBefore(newdiv, currentDiv);
+     // console.log(newnote.innerHTML);
 
     });
 
