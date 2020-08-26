@@ -40,6 +40,7 @@ header{
     left: 0;
     width: 250px;
     height: 100%;
+    
 
 }
 
@@ -53,7 +54,9 @@ header{
     transition: background 0.5s;
     /* transition-property:; */
      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); 
-    color: black;
+     color:black;
+     
+  
 
 }
 .sidebar a:hover{
@@ -99,6 +102,9 @@ header{
     color:gray;
     border:none;
 }
+.deleteButton:hover {
+    color:rgb(172, 172, 172);
+}
 .deleteButton:focus {
     outline: none;
 }
@@ -107,7 +113,12 @@ header{
     height:200px;
 }
 .submit-button {
-   border: 1px solid rgb(161, 161, 161);
+   border: none;
+   background-color:rgb(97, 97, 97);
+   color:white;
+}
+.submit-button:hover {
+    opacity:0.8;
 }
 form {
     display:flex;
