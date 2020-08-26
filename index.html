@@ -56,6 +56,11 @@
 
 
     <div class="content">
+      <form>
+     <label>Enter your notes:</label><br>
+      <input type="text" class="main-text-box">
+      <button type="submit" class="submit-button">Enter</button>
+      </form>
         <ul id="notes" style = "list-style-type:none">
 
         </ul> 
@@ -75,7 +80,17 @@
     const {ipcRenderer} = electron;
     const ul = document.querySelector('#notes');
     const content = document.getElementsByClassName("notes");
-    ipcRenderer.on('item:add', function(e, item){
+    const textBox = document.querySelector('.main-text-box');
+    ipcRenderer.on('item:add', addNotes);
+    document.querySelector('form').addEventListener('submit', (eve) => {
+          eve.preventDefault();
+          const item = document.querySelector('.main-text-box').value;
+          addNotes(eve, item);
+        });
+
+
+    function addNotes(e, item){
+
       const li = document.createElement('li');
       li.setAttribute("class", "card");
       li.innerText = item;
@@ -84,35 +99,24 @@
       ul.appendChild(li);
       delButton.addEventListener('click', removeItem);
 
-      
-      // var newdiv = document.createElement("div");
-      // newnote.innerHTML = item;
-      // var newnote = document.createTextNode(text);
-      // newnote.innerHTML = item;
-      // newdiv.appendChild(newnote);
-      // const currentDiv = document.getElementById("notes");
-      // document.body.insertBefore(newdiv, currentDiv);
-     // console.log(newnote.innerHTML);
+    }
 
-    });
+    ipcRenderer.on('item:clear', function () {
+        ul.innerHTML = '';
+      })
 
-//Clear all notes
-    ipcRenderer.on('item:clear', function(){
-      ul.innerHTML = '';
-    })
-
-    function createDeleteButton() {
-          let deleteButton = document.createElement('button');
-          deleteButton.textContent = 'x';
-          deleteButton.className = 'deleteButton';
-          return deleteButton;
-        }
+      function createDeleteButton() {
+        let deleteButton = document.createElement('button');
+        deleteButton.textContent = 'x';
+        deleteButton.className = 'deleteButton';
+        return deleteButton;
+      }
 
 
-function removeItem(e){
-  e.target.parentElement.remove();
-}
-     
+      function removeItem(e) {
+        e.target.parentElement.remove();
+      }
+    
   </script> 
   
 </body>

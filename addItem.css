@@ -19,3 +19,7 @@ button[type="submit"] {
     width:90%;
     font-family: 'Quicksand', sans-serif;
 }
+button:focus {
+    border:none;
+    text-decoration:none;
+}
