@@ -112,4 +112,6 @@ header{
 form {
     display:flex;
     flex-direction: column;
+    margin-left: 50px;
+    padding-right: 10px;
 }
