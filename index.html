@@ -79,7 +79,10 @@
       const li = document.createElement('li');
       li.setAttribute("class", "card");
       li.innerText = item;
+      let delButton = createDeleteButton();
+      li.appendChild(delButton);
       ul.appendChild(li);
+      delButton.addEventListener('dblclick', removeItem);
 
       
       // var newdiv = document.createElement("div");
@@ -98,7 +101,17 @@
       ul.innerHTML = '';
     })
 
+    function createDeleteButton() {
+          let deleteButton = document.createElement('button');
+          deleteButton.textContent = 'x';
+          deleteButton.className = 'deleteButton';
+          return deleteButton;
+        }
 
+
+function removeItem(e){
+  e.target.parentElement.remove();
+}
      
   </script> 
   
