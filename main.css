@@ -2,6 +2,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
+    background-color: rgb(237, 237, 237);
 }
 
 
@@ -32,7 +33,7 @@ header{
 }
 
 .sidebar{
-    background:;
+    /* background:; */
     margin-top: 20px;
     padding-top: 20px;
     position: fixed;
@@ -49,14 +50,15 @@ header{
     line-height: 50px;
     padding-left: 20px;
     box-sizing: border-box;
-    transition: 0.5s;
-    transition-property:;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: background 0.5s;
+    /* transition-property:; */
+     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); 
     color: black;
 
 }
 .sidebar a:hover{
     background: #DCDCDC;
+    text-decoration: none;
 }
 /* .sidebar span:nth-of-type(odd){
     background-color:#DCDCDC;
@@ -68,11 +70,17 @@ header{
 }
 
 .content{
-    margin-left: 250px;
+    margin-left: 200px;
+    padding-right: 10px;
     padding-top: 100px;
+
+}
+.content li{
+    text-align:center;
 }
 
 #notes{
     line-height: 50px;
     padding-top: 10px;
 }
+
