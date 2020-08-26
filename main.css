@@ -81,6 +81,8 @@ header{
     /* text-align:center; */
     display:flex;
     flex-direction: row;
+    justify-content:space-between;
+    padding:3px;
 }
 
 #notes{
@@ -90,6 +92,7 @@ header{
 
 .deleteButton {
     display:inline-block;
+  
     width:50px;
     height:30px;
     background-color:white;
