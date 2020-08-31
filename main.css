@@ -1,9 +1,10 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-family: 'Quicksand', sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Quicksand', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
-    /* background-color: rgb(237, 237, 237); */
+    background-color: #d8e2dc; 
 }
 
 
@@ -39,7 +40,7 @@ header{
     padding-top: 20px;
     position: fixed;
     left: 0;
-    width: 250px;
+    width: 310px;
     height: 100%;
     
 
@@ -48,9 +49,10 @@ header{
 .sidebar a{
     display: block;
     width: 70%;
-    font-size: 18px;
+    height:60px;
+    font-size: 20px;
     line-height: 50px;
-    padding-left: 20px;
+    padding-left: 0px;
     box-sizing: border-box;
     transition: background 0.5s;
     /* transition-property:; */
@@ -60,10 +62,7 @@ header{
   
 
 }
-.sidebar a:hover{
-    background: #DCDCDC;
-    text-decoration: none;
-}
+
 /* .sidebar span:nth-of-type(odd){
     background-color:#DCDCDC;
 } */
@@ -76,7 +75,7 @@ header{
 }
 
 .content{
-    margin-left: 200px;
+    margin-left: 250px;
     padding-right: 10px;
     padding-top: 100px;
 }
@@ -91,6 +90,8 @@ header{
 #notes{
     line-height: 50px;
     padding-top: 10px;
+    padding-left:0px;
+    margin-right: 6px;
 }
 
 .deleteButton {
@@ -123,7 +124,7 @@ header{
 form {
     display:flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 0px;
     padding-right: 10px;
 }
 
@@ -132,8 +133,24 @@ form {
 
 .active{
     opacity : 1 !important;
+    
 }
 
 .hide {
     display: none;
 } 
+#note-tab {
+    background-color:#ffcad4;
+    
+}
+#reminder-tab {
+    background-color:#ffe5d9;
+}
+#about-tab {
+    background-color:rgb(255, 255, 134);
+    
+}
+.sidebar a:hover{
+    opacity:0.8;
+    text-decoration: none;
+}
