@@ -125,16 +125,19 @@
   }
 
 
-const NotesBtn = document.querySelector(".tab1");
-const RemindersBtn = document.querySelector(".tab2");
-const AboutBtn = document.querySelector(".tab3");
+
+
+   //Buttons to add tabbing
+const NotesBtn = document.querySelector('.tab1');
+const RemindersBtn = document.querySelector('.tab2');
+const AboutBtn = document.querySelector('.tab3');
 const notecontent = document.querySelector("#note");
 const remindercontent = document.querySelector("#reminders");
 const aboutcontent = document.querySelector("#About");
 
 
 
-NotesBtn.addEventListener('click', function(){
+NotesBtn.addEventListener("click", function(){
 
 active(NotesBtn);
 inactive([RemindersBtn, AboutBtn]);
@@ -146,7 +149,7 @@ hide([remindercontent, aboutcontent]);
 
 })
 
-RemindersBtn.addEventListener('click', function(){
+RemindersBtn.addEventListener("click", function(){
   active(RemindersBtn);
   inactive([NotesBtn, AboutBtn]);
   show(remindercontent);
@@ -155,15 +158,14 @@ RemindersBtn.addEventListener('click', function(){
 })
 
 
-AboutBtn.addEventListener('click', function(){
+AboutBtn.addEventListener("click", function(){
   active(AboutBtn);
   inactive([NotesBtn, RemindersBtn]);
   show(notecontent);
-  hide([remindercontent, aboutcontent]);
+  hide([remindercontent, notecontent]);
 
 
 })
-
 
 
   //Adding tabbing
@@ -174,7 +176,7 @@ AboutBtn.addEventListener('click', function(){
   }
   
   function show(ele){
-    element.classList.remove("hide");
+    ele.classList.remove("hide");
 
   }
 
