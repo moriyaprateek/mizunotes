@@ -43,8 +43,6 @@
   <!-- Sidebar -->
 
   <div class="sidebar">
-    
-    
     <centre>
       <!-- If we want to add a large image/logo on the top left -->
       <img src="" alt="" class="sidebar_image">
@@ -53,43 +51,26 @@
     <!-- Put icons here/Sidebar content here-->
 
 
-    <a href="#"><div class="tab1"><i class="far fa-sticky-note"></i> Notes </div></a>
-    <a href="#"><div class="tab2"><i class="fas fa-stopwatch"></i> Reminders </div></a>
-    <a href="#"><div class="tab3"><i class="fas fa-info-circle"></i> About </div> </a>
+    <a href="#"><i class="far fa-sticky-note"></i><span> Notes</span></a>
+    <a href="#"><i class="fas fa-stopwatch"></i><span> Reminders</span></a>
+    <a href="#"><i class="fas fa-info-circle"></i><span> About</span></a>
   </div>
 
 
   <div class="content">
+    <form>
+      <label>Enter your notes:</label><br>
+      <input type="text" class="main-text-box">
+      <button type="submit" class="submit-button">Enter</button>
+    </form>
+    <ul id="notes" style="list-style-type:none">
 
-    <!-- The notes tab -->
-    <div id="note">
-
-            <!-- <label>Enter your notes:</label><br> -->
-          <form>
-            <input type="text" id = "Add-notes-form" class="main-text-box" placeholder="Enter your note here!">
-            <!-- <button type="submit" class="submit-button">Enter</button> -->
-          </form>
-          <ul id="notes" style="list-style-type:none">
-      
-          </ul>
-    </div>
-
-    <div class="hide" id="reminders">
-      <!-- Add the reminders content here -->
-
-
-    </div>
-
-    <div class = "hide" id="About" >
-        <!-- Add the about content here -->
-      
-          Made by Amiti and Prateek.
-    </div>
-
-
-
-
-    
+    </ul>
+    <!-- Need to complete main content part -->
+    <!-- 
+        <div id="notes">
+            Add notes here
+        </div> -->
   </div>
 </body>
 
@@ -138,75 +119,15 @@
     e.target.parentElement.remove();
   }
 
+       // var newdiv = document.createElement("div");
+      // newnote.innerHTML = item;
+      // var newnote = document.createTextNode(text);
+      // newnote.innerHTML = item;
+      // newdiv.appendChild(newnote);
+      // const currentDiv = document.getElementById("notes");
+      // document.body.insertBefore(newdiv, currentDiv);
+     // console.log(newnote.innerHTML);
 
-const NotesBtn = document.querySelector(".tab1");
-const RemindersBtn = document.querySelector(".tab2");
-const AboutBtn = document.querySelector(".tab3");
-const notecontent = document.querySelector("#note");
-const remindercontent = document.querySelector("#reminders");
-const aboutcontent = document.querySelector("#About");
-
-
-
-NotesBtn.addEventListener('click', function(){
-
-active(NotesBtn);
-inactive([RemindersBtn, AboutBtn]);
-show(notecontent);
-hide([remindercontent, aboutcontent]);
-
-
-
-
-})
-
-RemindersBtn.addEventListener('click', function(){
-  active(RemindersBtn);
-  inactive([NotesBtn, AboutBtn]);
-  show(remindercontent);
-  hide([notecontent, aboutcontent]);
-
-})
-
-
-AboutBtn.addEventListener('click', function(){
-  active(AboutBtn);
-  inactive([NotesBtn, RemindersBtn]);
-  show(notecontent);
-  hide([remindercontent, aboutcontent]);
-
-
-})
-
-
-
-  //Adding tabbing
-
-  function active(element){
-    element.classList.add("active");
-
-  }
-  
-  function show(ele){
-    element.classList.remove("hide");
-
-  }
-
-  function hide(elementsArray){
-    elementsArray.forEach(element => {
-      element.classList.add("hide");
-    });
-
-  }
-
-
-  function inactive(elementsArray){
-    elementsArray.forEach(element => {
-      element.classList.remove("active");
-    });
-
-  }
-  
 </script>
 
 </body>
