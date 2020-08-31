@@ -13,13 +13,10 @@ let addWin;
 
 function createWindow() {
 
-  win = new BrowserWindow({ width: 800, height: 600,
+  win = new BrowserWindow({ width: 1280, height: 720,
   
     webPreferences: {
       nodeIntegration: true
-      // had to add this because of the following error: Uncaught ReferenceError: require is not defined
-      //https://stackoverflow.com/questions/57505082/would-it-be-safe-to-enable-nodeintegration-in-electron-on-a-local-page-that-is-p
-      // check this ^ 
   }
   
   })
@@ -52,8 +49,8 @@ function createWindow() {
 function addWindow() {
 
  
-  addWin = new BrowserWindow({ width: 400, 
-    height: 300,
+  addWin = new BrowserWindow({ width: 600, 
+    height: 800,
   title:"Add notes",
   webPreferences: {
     nodeIntegration: true
@@ -74,9 +71,6 @@ function addWindow() {
   })
 
 
-
-
-
   win.on('closed', () => {
     win = null
   });
@@ -85,7 +79,6 @@ function addWindow() {
 ipcMain.on('item:add', function(e, item){
   win.webContents.send('item:add', item);
   addWin.close(); 
-  // Still have a reference to addWindow in memory. (Grabage collection) -- > Added garbage collection L71
   //addWindow = null;
 });
 

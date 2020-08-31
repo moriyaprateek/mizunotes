@@ -1,12 +1,12 @@
 {
-  "name": "noteapp",
+  "name": "mizunotes",
   "version": "1.0.0",
-  "description": "note taking desktop app",
+  "description": "A desktop appliction for saving all your notes.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "author": "Amiti Singh",
+  "author": "Amiti Singh, Moriya Prateek Velagaleti",
   "license": "MIT",
   "dependencies": {
     "electron": "^9.2.1"
