@@ -13,7 +13,7 @@ let addWin;
 
 function createWindow() {
 
-  win = new BrowserWindow({ width: 800, height: 600,
+  win = new BrowserWindow({ width: 1280, height: 720,
   
     webPreferences: {
       nodeIntegration: true
@@ -52,8 +52,8 @@ function createWindow() {
 function addWindow() {
 
  
-  addWin = new BrowserWindow({ width: 400, 
-    height: 300,
+  addWin = new BrowserWindow({ width: 600, 
+    height: 800,
   title:"Add notes",
   webPreferences: {
     nodeIntegration: true
