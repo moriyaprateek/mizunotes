@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "author": "Amiti Singh",
+  "author": "Amiti Singh, Moriya Prateek Velagaleti",
   "license": "MIT",
   "dependencies": {
     "electron": "^9.2.1"
