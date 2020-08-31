@@ -47,7 +47,7 @@ header{
 
 .sidebar a{
     display: block;
-    width: 90%;
+    width: 70%;
     font-size: 18px;
     line-height: 50px;
     padding-left: 20px;
@@ -68,8 +68,10 @@ header{
     background-color:#DCDCDC;
 } */
 
+
 .sidebar i{
     padding-left: 10px;
+    padding-right: 5px;
 
 }
 
@@ -77,9 +79,6 @@ header{
     margin-left: 200px;
     padding-right: 10px;
     padding-top: 100px;
-    
-
-
 }
 .content li{
     /* text-align:center; */
@@ -124,6 +123,17 @@ header{
 form {
     display:flex;
     flex-direction: column;
-    margin-left: 50px;
+    margin-left: 30px;
     padding-right: 10px;
 }
+
+
+/* Adding the tabs css */
+
+.active{
+    opacity : 1 !important;
+}
+
+.hide {
+    display: none;
+} 
