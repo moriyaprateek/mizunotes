@@ -151,16 +151,4 @@ if(process.env.NODE_ENV !== 'production'){
       }
     ]
   });
-
-
-
-    ipcRenderer.on('item:add', addNotes);
-  document.querySelector('form').addEventListener('submit', (eve) => {
-    eve.preventDefault();
-    let item = document.querySelector('.main-text-box').value;
-    addNotes(eve, item);
-  });
-
-
-
 }
