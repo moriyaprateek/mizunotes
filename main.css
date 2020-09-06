@@ -4,7 +4,7 @@ body{
     font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
-    /* background-color: #22223b;  */
+    background-color: #22223b; 
     color:white;
    
     
@@ -18,7 +18,6 @@ header{
     width: 100%;
     height: 30px;
     padding-left: 20px;
-    color: black;
 }
 
 
@@ -40,21 +39,19 @@ header{
 
 .sidebar{
     /* background:; */
-    margin-top: 50px;
-    padding-top: 30px;
+    margin-top: 20px;
+    padding-top: 20px;
     position: fixed;
     left: 0;
-    width: 200px;
+    width: 390px;
     height: 100%;
     margin-left:5px;
-    background-color: #caffbf;
-    
 
 }
 
 .sidebar a{
     display: block;
-    width: 100%;
+    width: 70%;
     height:60px;
     font-size: 20px;
     line-height: 50px;
@@ -63,8 +60,8 @@ header{
     transition: background 0.5s;
     /* transition-property:; */
      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); 
-     color:black;
-     /* border-bottom: 2px solid #22223b; */
+     color:white;
+     border-bottom: 2px solid #22223b;
      
   
 
@@ -151,17 +148,17 @@ form {
 .hide {
     display: none;
 } 
-/* #note-tab {
+#note-tab {
     background-color:#4a4e69;
     
 }
 #reminder-tab {
     background-color:#4a4e69;
-} */
-    /* #about-tab {
-        background-color: white;
-        
-    } */
+}
+#about-tab {
+    background-color:#4a4e69;
+    
+}
 .sidebar a:hover{
     opacity:0.8;
     text-decoration: none;
