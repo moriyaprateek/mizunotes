@@ -9,6 +9,6 @@
   "author": "Amiti Singh, Moriya Prateek Velagaleti",
   "license": "MIT",
   "dependencies": {
-    "electron": "^9.2.1"
+    "electron": "^9.3.1"
   }
 }
